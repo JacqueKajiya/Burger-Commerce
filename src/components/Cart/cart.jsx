@@ -1,19 +1,28 @@
 import { CartProduct } from "./CartProduct/cartProduct"
 
-export const Cart = ({ currentSale }) =>{
+export const Cart = ({ currentSale, addProduct, removeProduct }) =>{
 
-    
+    const totalPrice = currentSale.reduce((total, product) => total + product.price * product.quantity, 0) 
 
     return (
-        <div>
+        <aside>
             <h3> Carrinho de Compras </h3>
-                <ul>
-                    <CartProduct currentSale = { currentSale }/>
-                </ul>
-            <div>
-                <p>Total</p>
-                <p>R$ {currentSale.reduce((total, item) => total + (Number(item.price)).toFixed(2),0)} </p>
-            </div>
-        </div>
+                    {currentSale.length === 0 ?(
+                    <div>
+                        <h2>Carrinho Vazio</h2>
+                    </div>
+            ):(
+            <>
+            <ul>
+                <CartProduct currentSale = { currentSale } addProduct = { addProduct } removeProduct = { removeProduct }/>
+            </ul>
+                <div>
+                    <p>
+                        Total: <span>R${totalPrice.toFixed(2)}</span>
+                    </p>
+                </div>
+            </>
+        )}
+        </aside>
     )
 }

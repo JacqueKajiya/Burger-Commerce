@@ -12,8 +12,9 @@ export const Product = ({ products, addProduct }) => {
                         <h3> {product.name}</h3>
                         <small>{product.category}</small>
                         <p>{product.price}</p>
-
+                    <div>
                         <button type="button" onClick={() => addProduct(product)}>Adicionar</button>
+                    </div>
                 </li>
             )}
                 
