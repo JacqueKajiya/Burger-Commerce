@@ -1,23 +1,25 @@
+import { MenuProduct } from "./style"
 
 export const Product = ({ products, addProduct }) => {
 
     return(
-        <div>
+        <>
             {
                 products.map(product => 
-                <li key = {product.id}>
-                    <div>
+                <MenuProduct key = {product.id}>
+                    <div className="imgBox">
                         <img src={product.img} alt={product.name} />
                     </div>
+                    
+                    <div className="productInfo">
                         <h3> {product.name}</h3>
                         <small>{product.category}</small>
-                        <p>{product.price}</p>
-                    <div>
+                        <p>R$ {(product.price).toFixed(2)}</p>
                         <button type="button" onClick={() => addProduct(product)}>Adicionar</button>
                     </div>
-                </li>
+                </MenuProduct>
             )}
                 
-        </div>
+        </>
     )
 }

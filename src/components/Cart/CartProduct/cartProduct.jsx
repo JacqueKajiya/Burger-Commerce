@@ -1,3 +1,4 @@
+import { CartProductStyled } from "./style"
 
 
 export const CartProduct = ({currentSale, addProduct, removeProduct}) => {
@@ -5,18 +6,25 @@ export const CartProduct = ({currentSale, addProduct, removeProduct}) => {
     return(
         <>
             {currentSale.map((product) => (
-            <li key = {product.id}>
-                <img src={product.img} alt ={product.name}></img>
-                <h4>{product.name}</h4>
+            <CartProductStyled key = {product.id}>
+                <div className="productDescription">
+                    <img src={product.img} alt ={product.name}></img>
 
-                <div>
-                    <button onClick={() => addProduct(product)}>+</button>
-                    <button onClick={() => removeProduct(product)}>-</button>
+                        <div>
+                            <h4>{product.name}</h4>
+                            <small>{product.category}</small>
+                        </div>
                 </div>
-                <div>
-                    {product.quantity} - ${product.price.toFixed(2)}
-                </div>
-            </li>
+
+                    <div className="productPrice">
+                            {product.quantity} - ${product.price.toFixed(2)}
+                        <div className="productButtons">
+                            <button onClick={() => addProduct(product)}>+</button>
+                            <button onClick={() => removeProduct(product)}>-</button>
+                        </div>
+                    </div>
+
+            </CartProductStyled>
             ))
             }
             

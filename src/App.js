@@ -1,26 +1,26 @@
 import { useState, useEffect } from "react";
 import { Header } from "./components/Header/header";
+import { api } from "../src/services/api";
 import { ProductList } from "./components/ProductList/productList"
 import { Cart } from "./components/Cart/cart";
+import { Container } from "./styles/container";
+import Global from "./styles/global";
 
 
 function App() {
   const [products, setProducts] = useState([])
-  const [filteredProducts, setFilteredProducts] = useState([])
   const [currentSale, setCurrentSale] = useState([])
-  const [cartTotal, setCartTotal] = useState(0)
 
   useEffect(() => {
 
     async function getProducts() {
         try {
-            const response = await fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
-
-            const json = await response.json()
-
-            console.log(json)
+            const response = await api.get("products")
+      
+            const json = await response.data
 
             setProducts(json)
+
         }
 
         catch (error) {
@@ -51,16 +51,16 @@ function App() {
       }
     }
 
-    // const productName = products.filter(product => product.name.tolowerCase().includes())
-
   return (
-    <div>
-        <Header setFilteredProducts = { setFilteredProducts } products = { products }/>
-     <main>
-        <ProductList products= { products } addProduct = { addProduct } />
-        <Cart currentSale = { currentSale } addProduct = { addProduct } removeProduct = { removeProduct }/>
-     </main>
-    </div>
+    <Container>
+      <Global />
+          <Header products = { products } setProducts = { setProducts }/>
+
+      <main>
+          <ProductList products= { products } addProduct = { addProduct } />
+          <Cart currentSale = { currentSale } setCurrentSale = { setCurrentSale } addProduct = { addProduct } removeProduct = { removeProduct }/>
+      </main>
+    </Container>
   );
 }
 

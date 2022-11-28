@@ -1,10 +1,21 @@
+import { useState } from "react"
+import { SearchInputStyled } from "./style"
 
-export const InputSearch = ({ setFilteredProducts, products }) => {
+export const InputSearch = ({ products, setProducts }) => {
+    const [searchProduct, setSearchProduct] = useState("")
+
+    function searchItem (){
+        const productName = products.filter(product => product.name.toLowerCase().includes(searchProduct.toLowerCase()))
+        setProducts(productName)
+      }
 
     return (
-        <div>
-            <input type="text" placeholder="Digitar pesquisa"/>
-            <button type="button" onClick={() => setFilteredProducts([])}>Pesquisar</button>
-        </div>
+        <SearchInputStyled>
+            <input onChange = {(text) => {
+                setSearchProduct(text.target.value) 
+                }} type="text" placeholder="Digitar pesquisa"
+            />
+            <button onClick={() => {searchItem()}} type="button"> Pesquisar </button>
+        </SearchInputStyled>
     )
 }
