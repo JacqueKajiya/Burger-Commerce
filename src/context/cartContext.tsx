@@ -27,6 +27,7 @@ interface iCartProviderData{
   removeCartItem: (id:number) => void
   openCart: () => void,
   closeCart: () => void,
+  openModal: boolean,
   removeAllItems: () => void,
   cartQuantity: number,
 }
@@ -37,6 +38,7 @@ export const CartProvider = ({ children } : iCartContextProps) => {
   const [openModal, setOpenModal] = useState(false)
   const [products, setProducts] = useState<iBurguerItens[]>([])
   const [currentSale, setCurrentSale] = useState<iCartItens[]>([])
+  
   const token = localStorage.getItem("@token")
 
   
@@ -55,8 +57,6 @@ export const CartProvider = ({ children } : iCartContextProps) => {
     }
     getProducts()}
   }, [])
-
-  console.log(products[0])
 
   const cartQuantity = currentSale.reduce((acc, itens) => itens.quantity + acc, 0)
 
@@ -119,6 +119,7 @@ export const CartProvider = ({ children } : iCartContextProps) => {
         removeAllItems,
         removeCartItem, 
         cartQuantity,
+        openModal,
         openCart,
         closeCart}}>
             {children}

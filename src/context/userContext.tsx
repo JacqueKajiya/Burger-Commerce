@@ -55,6 +55,7 @@ export const UserProvider = ({ children } : iUserContextProps) => {
             }
 
                 try{
+                    setLoading(true)
                     api.defaults.headers.common.authorization = `Bearer ${token}`
                     const response = await api.get<iUserAutoLogin>(`users/${userId}`)
                     
@@ -71,7 +72,6 @@ export const UserProvider = ({ children } : iUserContextProps) => {
 
             loadUser()
         }, [])
-
 
     const loginUser = async (data : iUserData) =>{
         try {
