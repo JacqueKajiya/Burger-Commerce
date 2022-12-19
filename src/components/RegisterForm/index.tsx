@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
 import { Input } from "../Input"
-
+import { StyledRegisterForm } from "./style"
 
 interface iRegisterForm{
     email: string,
@@ -36,13 +36,13 @@ export const RegisterForm = () => {
     }
     
         return(
-            <form onSubmit={handleSubmit(submit)} noValidate>
+            <StyledRegisterForm onSubmit={handleSubmit(submit)} noValidate>
                 <Input type="text" placeholder="Digite aqui seu nome" label="Nome" id="name" register={register("name")} error={errors.name} />
                 <Input type="email" placeholder="Digite aqui seu email" label="Email" id="email" register={register("email")} error={errors.email} />
                 <Input type="password" placeholder="Digite aqui sua senha" label="Senha" id="password" register={register("password")} error={errors.password} />
                 <Input type="password" placeholder="Confirme sua senha" label="Confirmação de senha" id="confirmPassword" register={register("confirmPassword")} error={errors.confirmPassword} />
     
                 <button type="submit">Cadastrar</button>
-            </form>
+            </StyledRegisterForm>
         )
     }

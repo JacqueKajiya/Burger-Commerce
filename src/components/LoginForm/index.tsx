@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
 import { Input } from "../Input"
+import { StyledForm } from "./style"
 
 interface iLoginForm{
     email: string,
@@ -30,11 +31,13 @@ const submit: SubmitHandler<iLoginForm> = (data) => {
 }
 
     return(
-        <form onSubmit={handleSubmit(submit)} noValidate>
+        <StyledForm onSubmit={handleSubmit(submit)} noValidate>
+            <h3>Login</h3>
+            
             <Input type="email" placeholder="Digite aqui seu email" label="Email" id="email" register={register("email")} error={errors.email} />
             <Input type="password" placeholder="Digite aqui sua senha" label="Senha" id="password" register={register("password")} error={errors.password} />
 
             <button type="submit">Logar</button>
-        </form>
+        </StyledForm>
     )
 }

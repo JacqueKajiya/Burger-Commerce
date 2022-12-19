@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const HeaderStyled = styled.header`
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 15px;
+    gap: 10px;
 
     .headerOptions{
         display: flex;
@@ -20,6 +22,7 @@ export const HeaderStyled = styled.header`
         border-radius: var(--radius);
 
         input{
+            width: 100px;
             opacity: .5;
             border: none;
         }
@@ -56,7 +59,6 @@ export const HeaderStyled = styled.header`
     }
 
     @media (min-width: 700px){
-        flex-direction: row;
         justify-content: space-between;
 
         input{

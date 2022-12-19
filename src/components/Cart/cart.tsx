@@ -53,7 +53,7 @@ export const Cart = () =>{
                         Total: <span>
                             {currentSale.reduce((acc, itens) => {
                             const product = products.find(item => item.id === itens.id)
-                            return acc + (product?.price || 0) * itens.quantity}, 0)}
+                            return  acc + (product?.price || 0) * itens.quantity}, 0).toFixed(2)}
                         </span>
                     </p>
 

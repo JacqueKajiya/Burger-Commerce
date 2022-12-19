@@ -8,7 +8,7 @@ interface iCartProps{
 }
 
 export const CartProduct = ({id, quantity} : iCartProps) => {
-    const { products } = useContext(CartContext)
+    const { products, addQuantity, decreaseQuantity } = useContext(CartContext)
 
     const product = products.find(item => item.id === id)
     
@@ -18,7 +18,6 @@ export const CartProduct = ({id, quantity} : iCartProps) => {
 
     return(
         <>
-            
             <CartProductStyled key = {product.id}>
                 <div className="productDescription">
                     <img src={product.img} alt ={product.name}></img>
@@ -32,8 +31,8 @@ export const CartProduct = ({id, quantity} : iCartProps) => {
                     <div className="productPrice">
                             {quantity} - ${product.price.toFixed(2)}
                         <div className="productButtons">
-                            <button >+</button>
-                            <button >-</button>
+                            <button type="button" onClick={()=> addQuantity(product.id)}>+</button>
+                            <button type="button" onClick={()=> decreaseQuantity(product.id)}>-</button>
                         </div>
                     </div>
 

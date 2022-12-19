@@ -20,7 +20,7 @@ export const CartProductStyled = styled.li`
     }
 
     .productPrice{
-        width: 30%;
+        width: 40%;
         font-size: var(--font-size-4);
         line-height: 1px;
         display: flex;

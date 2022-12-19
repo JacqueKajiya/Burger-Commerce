@@ -15,7 +15,7 @@ export const Input = ({type, id, label, register, placeholder, error}: IInputPro
         <fieldset>
             <label htmlFor={id}>{label}</label>
             <input type= {type} id={id} placeholder={placeholder} {...register} />
-            {error && <span>{error.message}</span>}
+           {error && <small>{error.message}</small>}
         </fieldset>
     )
 }

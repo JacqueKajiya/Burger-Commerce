@@ -92,6 +92,7 @@ export const CartContainer = styled.aside`
     }
 
     p{
+        display: flex;
         font-size: var(--font-size-4);
         font-weight: 600;
     }

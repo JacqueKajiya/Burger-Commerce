@@ -6,7 +6,7 @@ import { CartContext } from "../../context/cartContext"
 
 export const Header = () => {
 
-    const { cartQuantity, openCart, closeCart } = useContext(CartContext)
+    const { cartQuantity, openCart } = useContext(CartContext)
     const { logOut } = useContext(UserContext)
     
     return (

@@ -20,6 +20,7 @@ export default createGlobalStyle`
     --font-size-2: 1.375rem;
     --font-size-3: 1.125rem;
     --font-size-4: 0.875rem;
+    --font-size-error: 0.625rem;
 
     --radius: 8px;
     --radius-2: 4px;
