@@ -2,15 +2,23 @@ import React, { useContext } from "react";
 import { CartContext } from "../../../context/cartContext";
 import { CartProductStyled } from "./style"
 
+interface iCartProps{
+    id: number,
+    quantity: number,
+}
 
-export const CartProduct = () => {
-    const { currentSale, products } = useContext(CartContext)
+export const CartProduct = ({id, quantity} : iCartProps) => {
+    const { products } = useContext(CartContext)
 
-    // const product = products.find(item => item.id === products.id)
+    const product = products.find(item => item.id === id)
     
+    if (product == null) {
+        return null
+    }
+
     return(
         <>
-            {/* {currentSale.map((product) => (
+            
             <CartProductStyled key = {product.id}>
                 <div className="productDescription">
                     <img src={product.img} alt ={product.name}></img>
@@ -22,7 +30,7 @@ export const CartProduct = () => {
                 </div>
 
                     <div className="productPrice">
-                            {product.quantity} - ${product.price.toFixed(2)}
+                            {quantity} - ${product.price.toFixed(2)}
                         <div className="productButtons">
                             <button >+</button>
                             <button >-</button>
@@ -30,8 +38,8 @@ export const CartProduct = () => {
                     </div>
 
             </CartProductStyled>
-            ))
-            } */}
+        
+    
             
         </>
     )

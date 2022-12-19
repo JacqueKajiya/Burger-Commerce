@@ -4,7 +4,7 @@ import { CartProduct } from "./CartProduct/cartProduct"
 import { CartContainer } from "./style"
 
 export const Cart = () =>{
-    const { currentSale, removeAllItems } = useContext(CartContext)
+    const { currentSale, removeAllItems, products } = useContext(CartContext)
 
     // const totalPrice = currentSale.reduce((total, product) => total + product.price * product.quantity, 0) 
 
@@ -19,11 +19,17 @@ export const Cart = () =>{
             ):(
             <>
             <ul>
-                <CartProduct />
+                {currentSale.map(item => (
+                <CartProduct key={item.id} {...item} />
+                ))}
             </ul>
                 <div className="totalBox">
                     <p>
-                        Total: <span>0</span>
+                        Total: <span>
+                            {currentSale.reduce((acc, itens) => {
+                            const product = products.find(item => item.id === itens.id)
+                            return acc + (product?.price || 0) * itens.quantity}, 0)}
+                        </span>
                     </p>
 
                     <button onClick={() => removeAllItems()}>Remover Todos</button>

@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { UserContext } from "../../context/userContext"
-// import { InputSearch } from "./InputSearch/inputSearch"
 import { HeaderStyled } from "./style"
 import { FiSearch, FiLogOut, FiShoppingCart } from "react-icons/fi"
 import { CartContext } from "../../context/cartContext"
@@ -16,7 +15,6 @@ export const Header = () => {
                 <img src="../src/img/burger_logo.png" alt="Site_Logo" />
             </figure>
             <div className="headerOptions">
-                {/* <InputSearch/> */}
                 <div className="searchInput">
                     <input type="text" placeholder="Digitar pesquisa"/>
                     <FiSearch className="searchIcon"/>
