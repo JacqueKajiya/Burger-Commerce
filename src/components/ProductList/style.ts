@@ -12,7 +12,6 @@ export const ListOfProducts = styled.ul`
     overflow: auto;
 
 @media (min-width: 700px){
-    width: 70%;
     flex-wrap: wrap;
     gap: 15px;
 }

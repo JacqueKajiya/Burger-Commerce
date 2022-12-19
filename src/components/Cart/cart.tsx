@@ -1,9 +1,12 @@
+import React, { useContext } from "react";
+import { CartContext } from "../../context/cartContext";
 import { CartProduct } from "./CartProduct/cartProduct"
 import { CartContainer } from "./style"
 
-export const Cart = ({ currentSale, addProduct, removeProduct, setCurrentSale }) =>{
+export const Cart = () =>{
+    const { currentSale, removeAllItems } = useContext(CartContext)
 
-    const totalPrice = currentSale.reduce((total, product) => total + product.price * product.quantity, 0) 
+    // const totalPrice = currentSale.reduce((total, product) => total + product.price * product.quantity, 0) 
 
     return (
         <CartContainer>
@@ -16,14 +19,14 @@ export const Cart = ({ currentSale, addProduct, removeProduct, setCurrentSale })
             ):(
             <>
             <ul>
-                <CartProduct currentSale = { currentSale } addProduct = { addProduct } removeProduct = { removeProduct }/>
+                <CartProduct />
             </ul>
                 <div className="totalBox">
                     <p>
-                        Total: <span>R${totalPrice.toFixed(2)}</span>
+                        Total: <span>0</span>
                     </p>
 
-                    <button onClick={() => setCurrentSale([])}>Remover Todos</button>
+                    <button onClick={() => removeAllItems()}>Remover Todos</button>
                 </div>
             </>
         )}

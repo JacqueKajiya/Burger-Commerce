@@ -68,8 +68,6 @@ export const CartContainer = styled.aside`
     }
 
     @media (min-width: 700px){
-
-        width: 30%;
     
         span{
             color: var(--grey-50);

@@ -1,7 +1,11 @@
+import { useContext } from "react"
+import { CartContext } from "../../../context/cartContext"
 import { MenuProduct } from "./style"
 
-export const Product = ({ products, addProduct }) => {
+export const Product = () => {
 
+    const { products } = useContext(CartContext)
+    
     return(
         <>
             {
@@ -15,7 +19,7 @@ export const Product = ({ products, addProduct }) => {
                         <h3> {product.name}</h3>
                         <small>{product.category}</small>
                         <p>R$ {(product.price).toFixed(2)}</p>
-                        <button type="button" onClick={() => addProduct(product)}>Adicionar</button>
+                        <button type="button">Adicionar</button>
                     </div>
                 </MenuProduct>
             )}

@@ -22,6 +22,7 @@ export default createGlobalStyle`
     --font-size-4: 0.875rem;
 
     --radius: 8px;
+    --radius-2: 4px;
 
 }
 
