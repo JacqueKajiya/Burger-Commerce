@@ -13,10 +13,11 @@ export const ModalWrapper = styled.div`
 `
 
 export const ModalBox = styled.div`
-    padding: 40px;
     width: 100%;
     max-width: 400px;
+
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
 

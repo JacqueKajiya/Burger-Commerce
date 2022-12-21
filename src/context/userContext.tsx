@@ -82,7 +82,7 @@ export const UserProvider = ({ children } : iUserContextProps) => {
 
             toast.success("Usuário logado com sucesso!")
 
-            const toNavigate = location.state?.from?.pathname || "dashboard"
+            const toNavigate = location.state?.from?.pathname || "/dashboard"
             
             navigate(toNavigate, {replace : true })
 

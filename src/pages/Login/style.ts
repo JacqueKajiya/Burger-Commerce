@@ -56,7 +56,7 @@ export const StyledLogin = styled.div`
         }
     }
 
-    @media (min-width: 500px){
+    @media (min-width: 700px){
         width: 100%;
         flex-direction: row;
         margin: 30px 0;

@@ -27,7 +27,7 @@ export const StyledRegister = styled.div`
         font-size: var(--font-size-4);
     }
 
-    @media (min-width: 500px){
+    @media (min-width: 700px){
         width: 100%;
         display: flex;
         flex-direction: row;
