@@ -1,12 +1,8 @@
-// import { Product } from "./Product/product"
-import { ListOfProducts } from "./style"
-import { Product } from "./Product/product"
+import React from "react";
 
-export const ProductList = () =>{
-    
+export const teste  = () => {
     return (
-        <ListOfProducts>
-            <Product />
-        </ListOfProducts>
+        <>
+        </>
     )
 }

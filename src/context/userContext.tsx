@@ -49,42 +49,39 @@ export const UserProvider = ({ children } : iUserContextProps) => {
 
     useEffect  (() => {
         const loadUser = async () =>{
-            if(!token){
-                setLoading(false)
-                return
-            }
+            if(token){
 
                 try{
-                    setLoading(true)
                     api.defaults.headers.common.authorization = `Bearer ${token}`
                     const response = await api.get<iUserAutoLogin>(`users/${userId}`)
                     
                     setUser(response.data)
                     navigate("/dashboard")
-
                 }
                 catch (error){
                     console.error(error)
                 }finally{
                     setLoading(false)
                 }
-            }
+            }}
 
             loadUser()
         }, [])
 
     const loginUser = async (data : iUserData) =>{
         try {
+            setLoading(true)
             const response = await api.post("login", data)
 
             localStorage.setItem("@token", response.data.accessToken)
             localStorage.setItem("@userId", response.data.user.id)
 
-            toast.success("Usuário logado com sucesso!")
+            setUser(response.data)
 
             const toNavigate = location.state?.from?.pathname || "/dashboard"
-            
             navigate(toNavigate, {replace : true })
+
+            toast.success("Usuário logado com sucesso!")
 
         } catch (error) {
             console.error(error)

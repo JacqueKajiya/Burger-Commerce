@@ -40,9 +40,8 @@ export const CartProvider = ({ children } : iCartContextProps) => {
   const [currentSale, setCurrentSale] = useState<iCartItens[]>([])
   
   const token = localStorage.getItem("@token")
-
   
-  useEffect(() => {
+ 
     if(token){
     const getProducts = async () => {
       try{
@@ -56,7 +55,6 @@ export const CartProvider = ({ children } : iCartContextProps) => {
 
     }
     getProducts()}
-  }, [])
 
   const cartQuantity = currentSale.reduce((acc, itens) => itens.quantity + acc, 0)
 
