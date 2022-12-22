@@ -37,10 +37,10 @@ export const RegisterForm = () => {
     
         return(
             <StyledRegisterForm onSubmit={handleSubmit(submit)} noValidate>
-                <Input type="text" placeholder="Digite aqui seu nome" label="Nome" id="name" register={register("name")} error={errors.name} />
-                <Input type="email" placeholder="Digite aqui seu email" label="Email" id="email" register={register("email")} error={errors.email} />
-                <Input type="password" placeholder="Digite aqui sua senha" label="Senha" id="password" register={register("password")} error={errors.password} />
-                <Input type="password" placeholder="Confirme sua senha" label="Confirmação de senha" id="confirmPassword" register={register("confirmPassword")} error={errors.confirmPassword} />
+                <Input type="text"  label="Nome" register={register("name")} error={errors.name} />
+                <Input type="email"  label="Email"  register={register("email")} error={errors.email} />
+                <Input type="password"  label="Senha" register={register("password")} error={errors.password} />
+                <Input type="password"  label="Confirmação de senha"  register={register("confirmPassword")} error={errors.confirmPassword} />
     
                 <button type="submit">Cadastrar</button>
             </StyledRegisterForm>

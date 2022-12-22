@@ -3,26 +3,17 @@ import styled from "styled-components";
 export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
+    padding: 10px;
     gap: 20px;
 
     h3{
         font-size: var(--font-size-4);
     }
 
-    fieldset{
-        display: flex;
-        gap: 10px;
-    }
-
-    fieldset:hover{
-        border: solid 1px black;
-    }
 
     label{
-        color: var(--grey-100);
+        color: var(--grey-50);
         font-size: var(--font-size-4);
-        font-weight: 600;
-        transform: translate(-10%, -110%);
     }
     
     input{

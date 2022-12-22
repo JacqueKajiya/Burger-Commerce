@@ -7,6 +7,7 @@ import * as yup from "yup"
 import { Input } from "../Input"
 import { StyledForm } from "./style"
 
+
 interface iLoginForm{
     email: string,
     password: string,
@@ -34,8 +35,8 @@ const submit: SubmitHandler<iLoginForm> = (data) => {
         <StyledForm onSubmit={handleSubmit(submit)} noValidate>
             <h3>Login</h3>
             
-            <Input type="email" placeholder="Digite aqui seu email" label="Email" id="email" register={register("email")} error={errors.email} />
-            <Input type="password" placeholder="Digite aqui sua senha" label="Senha" id="password" register={register("password")} error={errors.password} />
+            <Input type="email"  label="Email" register={register("email")} error={errors.email} />
+            <Input type="password" label="Senha"  register={register("password")} error={errors.password} />
 
             <button type="submit">Logar</button>
         </StyledForm>

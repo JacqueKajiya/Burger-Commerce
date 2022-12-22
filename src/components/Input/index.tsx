@@ -1,21 +1,21 @@
 import React from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import { TextField } from "@material-ui/core";
 
 interface IInputProps{
-    id: string,
+    // id: string,
     type: "text" | "email" | "password",
     label: string,
     register: UseFormRegisterReturn,
-    placeholder: string,
+    // placeholder: string,
     error?: FieldError
 }
 
-export const Input = ({type, id, label, register, placeholder, error}: IInputProps) => {
+export const Input = ({type, label, register, error}: IInputProps) => {
     return(
-        <fieldset>
-            <label htmlFor={id}>{label}</label>
-            <input type= {type} id={id} placeholder={placeholder} {...register} />
+        <>
+            <TextField id="outlined-required" variant ="outlined" label= { label } type={type} {...register}/>
            {error && <small>{error.message}</small>}
-        </fieldset>
+        </>
     )
 }
